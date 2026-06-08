@@ -1,1 +1,185 @@
-<h1> Coming Soon </h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crew Control — Coming Soon</title>
+<meta name="description" content="Race-day coordination for your crew. Track checkpoints, flag issues, and keep everyone in sync.">
+<style>
+  :root {
+    --bg-primary:   #0a0a0f;
+    --bg-secondary: #111111;
+    --surface:      #1e1e2e;
+    --green:        #4ade80;
+    --amber:        #facc15;
+    --red:          #f87171;
+    --text-primary:   #ffffff;
+    --text-secondary: rgba(255,255,255,0.60);
+    --text-tertiary:  rgba(255,255,255,0.35);
+    --hairline:       rgba(255,255,255,0.15);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body { height: 100%; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: var(--text-primary);
+    background: radial-gradient(120% 85% at 50% 0%, var(--surface) 0%, var(--bg-primary) 55%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 24px;
+    min-height: 100%;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body::before,
+  body::after {
+    content: "";
+    position: fixed;
+    width: 540px;
+    height: 540px;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 0;
+  }
+  body::before { background: var(--green); opacity: 0.06; top: -160px; left: -140px; }
+  body::after  { background: var(--red);   opacity: 0.07; bottom: -180px; right: -160px; }
+
+  .card {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    animation: rise 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .logo {
+    width: 92px;
+    height: 92px;
+    border-radius: 21px;
+    box-shadow:
+      0 18px 50px rgba(0,0,0,0.55),
+      0 0 0 0.5px rgba(255,255,255,0.06) inset;
+    margin-bottom: 28px;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--hairline);
+    border-radius: 100px;
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+  }
+
+  .badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 8px rgba(74,222,128,0.70);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.4; }
+  }
+
+  .wordmark {
+    font-size: 33px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+
+  .tagline {
+    margin-top: 12px;
+    font-size: 15.5px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    max-width: 300px;
+  }
+
+  .dots {
+    display: flex;
+    gap: 10px;
+    margin-top: 32px;
+  }
+  .dots span {
+    width: 7px; height: 7px; border-radius: 50%;
+  }
+  .dots .g { background: var(--green); box-shadow: 0 0 10px rgba(74,222,128,0.55); }
+  .dots .a { background: var(--amber); box-shadow: 0 0 10px rgba(250,204,21,0.50); }
+  .dots .r { background: var(--red);   box-shadow: 0 0 10px rgba(248,113,113,0.50); }
+</style>
+</head>
+<body>
+  <main class="card">
+
+    <svg class="logo" viewBox="0 0 1024 1024" role="img" aria-label="Crew Control">
+      <defs>
+        <linearGradient id="plate" x1="0" y1="0" x2="0" y2="1024" gradientUnits="userSpaceOnUse">
+          <stop offset="0"   stop-color="#1e1e2e"/>
+          <stop offset="1"   stop-color="#0a0a0f"/>
+        </linearGradient>
+        <linearGradient id="route" x1="262" y1="254" x2="770" y2="768" gradientUnits="userSpaceOnUse">
+          <stop offset="0"   stop-color="#4ade80"/>
+          <stop offset="0.5" stop-color="#facc15"/>
+          <stop offset="1"   stop-color="#f87171"/>
+        </linearGradient>
+        <radialGradient id="glowG"><stop offset="0" stop-color="#4ade80" stop-opacity="0.55"/><stop offset="1" stop-color="#4ade80" stop-opacity="0"/></radialGradient>
+        <radialGradient id="glowA"><stop offset="0" stop-color="#facc15" stop-opacity="0.55"/><stop offset="1" stop-color="#facc15" stop-opacity="0"/></radialGradient>
+        <radialGradient id="glowR"><stop offset="0" stop-color="#f87171" stop-opacity="0.55"/><stop offset="1" stop-color="#f87171" stop-opacity="0"/></radialGradient>
+      </defs>
+      <rect width="1024" height="1024" rx="0" fill="url(#plate)"/>
+      <path d="M262,254 C372,334 372,464 520,512 C668,560 658,706 770,768"
+            fill="none" stroke="url(#route)" stroke-opacity="0.16" stroke-width="56" stroke-linecap="round"/>
+      <path d="M262,254 C372,334 372,464 520,512 C668,560 658,706 770,768"
+            fill="none" stroke="url(#route)" stroke-width="30" stroke-linecap="round"/>
+      <circle cx="770" cy="768" r="150" fill="url(#glowR)"/>
+      <circle cx="770" cy="768" r="80" fill="none" stroke="#f87171" stroke-opacity="0.40" stroke-width="9"/>
+      <circle cx="770" cy="768" r="54" fill="#0a0a0f"/><circle cx="770" cy="768" r="46" fill="#f87171"/>
+      <circle cx="520" cy="512" r="150" fill="url(#glowA)"/>
+      <circle cx="520" cy="512" r="54" fill="#0a0a0f"/><circle cx="520" cy="512" r="46" fill="#facc15"/>
+      <circle cx="262" cy="254" r="150" fill="url(#glowG)"/>
+      <circle cx="262" cy="254" r="54" fill="#0a0a0f"/><circle cx="262" cy="254" r="46" fill="#4ade80"/>
+    </svg>
+
+    <div class="badge" aria-label="Coming soon">
+      <span class="badge-dot" aria-hidden="true"></span>
+      Coming Soon
+    </div>
+
+    <h1 class="wordmark">Crew Control</h1>
+    <p class="tagline">Race-day coordination for your crew — track checkpoints, flag issues, and keep everyone in sync.</p>
+
+    <div class="dots" aria-hidden="true">
+      <span class="g"></span><span class="a"></span><span class="r"></span>
+    </div>
+
+  </main>
+</body>
+</html>
