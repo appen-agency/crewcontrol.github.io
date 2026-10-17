@@ -128,6 +128,15 @@
     gap: 10px;
     margin-top: 32px;
   }
+  .links {
+    margin-top: 28px;
+    display: flex;
+    gap: 20px;
+    font-size: 14px;
+  }
+  .links a { color: var(--text-tertiary); text-decoration: none; }
+  .links a:hover, .links a:focus-visible { color: var(--text-secondary); }
+
   .dots span {
     width: 7px; height: 7px; border-radius: 50%;
   }
@@ -179,6 +188,11 @@
     <div class="dots" aria-hidden="true">
       <span class="g"></span><span class="a"></span><span class="r"></span>
     </div>
+
+    <nav class="links">
+      <a href="/support/">Support</a>
+      <a href="/privacy/">Privacy Policy</a>
+    </nav>
 
   </main>
 </body>

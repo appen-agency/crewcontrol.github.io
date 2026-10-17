@@ -1,0 +1,55 @@
+/* Shared by the text pages (privacy, support). Same palette as the home page. */
+:root {
+  --bg-primary:   #0a0a0f;
+  --surface:      #1e1e2e;
+  --green:        #4ade80;
+  --text-primary:   #ffffff;
+  --text-secondary: rgba(255,255,255,0.70);
+  --text-tertiary:  rgba(255,255,255,0.45);
+  --hairline:       rgba(255,255,255,0.12);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: var(--text-primary);
+  background: radial-gradient(120% 60% at 50% 0%, var(--surface) 0%, var(--bg-primary) 60%) no-repeat, var(--bg-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  padding: 48px 24px 80px;
+}
+
+.page { max-width: 680px; margin: 0 auto; }
+
+.home {
+  display: inline-flex; align-items: center; gap: 10px;
+  color: var(--text-primary); text-decoration: none; font-weight: 600; font-size: 15px;
+  margin-bottom: 40px;
+}
+.home img { width: 32px; height: 32px; border-radius: 8px; }
+
+h1 { font-size: 34px; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 8px; }
+.updated { color: var(--text-tertiary); font-size: 14px; margin-bottom: 32px; }
+.lede { font-size: 17px; color: var(--text-secondary); margin-bottom: 8px; }
+
+h2 {
+  font-size: 20px; letter-spacing: -0.01em; margin: 40px 0 12px;
+  padding-top: 24px; border-top: 1px solid var(--hairline);
+}
+h3 { font-size: 16px; margin: 24px 0 6px; }
+p, li { color: var(--text-secondary); font-size: 16px; }
+p + p { margin-top: 12px; }
+ul { padding-left: 1.2em; margin: 8px 0; }
+li + li { margin-top: 6px; }
+strong { color: var(--text-primary); font-weight: 600; }
+a { color: var(--green); }
+a:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; border-radius: 2px; }
+
+.contact {
+  margin-top: 16px; padding: 16px 20px; border: 1px solid var(--hairline); border-radius: 12px;
+  background: rgba(255,255,255,0.03);
+}
+
+footer { margin-top: 56px; color: var(--text-tertiary); font-size: 14px; display: flex; gap: 20px; flex-wrap: wrap; }
+footer a { color: var(--text-tertiary); }
